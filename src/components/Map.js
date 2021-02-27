@@ -22,8 +22,8 @@ const Map = ({center, zoom}) => {
           defaultZoom={zoom}
         >
         <Header/>
-        {countries && countries.map(el => {
-            return <Marker key={el.numericCode} lat={el.latlng[0]} lng={el.latlng[1]} el={el}/>
+        {countries && countries.map((el,i) => {
+            return <Marker key={i} lat={el.latlng[0]} lng={el.latlng[1]} el={el}/>
         })}
         {current !==null ? <ExtraInfo current={current}/> : ''}
         </GoogleMapReact>
@@ -34,8 +34,8 @@ const Map = ({center, zoom}) => {
 
 Map.defaultProps = {
     center: {
-        lat: 59.95,
-        lng: 30.33
+        lat: 40.95,
+        lng: 20.33
     },
     zoom: 1
 }
