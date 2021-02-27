@@ -9,10 +9,14 @@ const CountContextProvider = (props) => {
     const [current, setCurrent] = useState(null);
 
     const fetchData = async () => {
+        setLoading(true);
+        console.log(loading)
         const res = await fetch('https://restcountries.eu/rest/v2/all');
         const data = await res.json();
-        setCountries(data)
+        setCountries(data);
+        setLoading(false);
     }
+    
 
     const showDetailedInfo = (el) => {
             setCurrent(el)

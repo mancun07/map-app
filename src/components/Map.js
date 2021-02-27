@@ -4,11 +4,12 @@ import { CountContext } from '../context/CountContextProvider';
 import Marker from './Marker';
 import ExtraInfo from './ExtraInfo';
 import Header from './Header';
+import Loader from './Loader';
 
 
 
 const Map = ({center, zoom}) => {
-  const {fetchData, countries, current} = useContext(CountContext);
+  const {fetchData, countries, current, loading} = useContext(CountContext);
   useEffect(() => {
     fetchData();
     console.log(countries)
@@ -16,7 +17,8 @@ const Map = ({center, zoom}) => {
 
     return (
         <div className="map-container">
-        <GoogleMapReact
+        {loading ? <Loader/> : (
+          <GoogleMapReact
           bootstrapURLKeys={{ key: '' }}
           defaultCenter={center}
           defaultZoom={zoom}
@@ -27,6 +29,7 @@ const Map = ({center, zoom}) => {
         })}
         {current !==null ? <ExtraInfo current={current}/> : ''}
         </GoogleMapReact>
+        ) }
       </div>
     )
 
