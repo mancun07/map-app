@@ -6,7 +6,7 @@ const Marker = ({el}) => {
     return (
         <div className="marker" onClick={() => showDetailedInfo(el)}>
             {/* <img src={el.flag} alt=""/> */}
-            <i className="fas fa-map-marker" style={{color: 'yellow'}}></i>
+            <i className="fas fa-map-pin" style={{color: 'yellow'}}></i>
         </div>
     )
 }

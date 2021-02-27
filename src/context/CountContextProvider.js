@@ -1,36 +1,45 @@
-import {createContext, useState} from 'react';
+import {createContext, useReducer} from 'react';
+import CountContextReducer from './CountContextReducer';
 
 export const CountContext = createContext();
 
 const CountContextProvider = (props) => {
 
-    const [countries, setCountries] = useState(null);
-    const [loading, setLoading] = useState(false);
-    const [current, setCurrent] = useState(null);
+    const initialState = {
+        countries: [],
+        loading: false,
+        current: null
+    }
+
+    const [state, dispatch] = useReducer(CountContextReducer, initialState);
 
     const fetchData = async () => {
-        setLoading(true);
-        console.log(loading)
+        setLoading();
         const res = await fetch('https://restcountries.eu/rest/v2/all');
         const data = await res.json();
-        setCountries(data);
-        setLoading(false);
+        dispatch({type: 'GET_DATA', payload: data})
     }
-    
 
+    
     const showDetailedInfo = (el) => {
-            setCurrent(el)
+        dispatch({type: 'SET_CURRENT', payload: el})
     }
 
     const clearCurrent = () => {
-        setCurrent(null);
+        dispatch({type: 'CLEAR_CURRENT'})
     }
+
+    const setLoading = () => {
+        dispatch({type: 'SET_LOADING'})
+    }
+
+
 
     return (
         <CountContext.Provider value={{
-            countries: countries,
-            loading: loading,
-            current,
+            countries: state.countries,
+            loading: state.loading,
+            current: state.current,
             fetchData,
             showDetailedInfo,
             clearCurrent        
