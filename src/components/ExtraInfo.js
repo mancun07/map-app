@@ -26,7 +26,10 @@ const ExtraInfo = ({current}) => {
                 <li><strong>Основной язык: {current.languages[0].name}</strong></li>
                 <li><strong>Валюта: {current.currencies[0].name}</strong></li>
             </ul>
-            <button className="btn" onClick={() => clearCurrent()}>Hide</button>
+            <button className="btn" onClick={() => clearCurrent()}
+            style={{boxShadow: "0px 0px 8px rgb(255,255,255)", background: 'rgb(0,0,0)',
+            width: '200px'}}
+            >Скрыть</button>
         </motion.div> 
     
     )
