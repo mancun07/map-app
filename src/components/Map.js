@@ -25,7 +25,7 @@ const Map = ({center, zoom}) => {
         {countries && countries.map(el => {
             return <Marker key={el.numericCode} lat={el.latlng[0]} lng={el.latlng[1]} el={el}/>
         })}
-        {current && <ExtraInfo/> }
+        {current !==null ? <ExtraInfo current={current}/> : ''}
         </GoogleMapReact>
       </div>
     )

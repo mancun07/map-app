@@ -15,11 +15,6 @@ const CountContextProvider = (props) => {
     }
 
     const showDetailedInfo = (el) => {
-        // setCurrent(null);
-        // const {capital, population, name} = el;
-        // const currencyName = el.currencies[0].name;
-        // const languageName = el.languages[0].name;
-        // setCurrent({name, capital, population, currencyName, languageName})
             setCurrent(el)
     }
 
