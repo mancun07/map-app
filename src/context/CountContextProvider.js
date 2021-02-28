@@ -10,7 +10,7 @@ const CountContextProvider = (props) => {
         loading: false,
         current: null,
         filtered:null,
-        choosen: null,
+        chosen: null,
         langlist: []
     }
 
@@ -31,11 +31,10 @@ const CountContextProvider = (props) => {
     }
 
     const fetchLangData = async (langcode) => {
-        console.log('works')
-        // setLoading();
-        // const res = await fetch(`https://restcountries.eu/rest/v2/lang/${langcode}`);
-        // const data = await res.json();
-        dispatch({type: 'FETCH_LANG_DATA', payload: langcode})
+        setLoading();
+        const res = await fetch(`https://restcountries.eu/rest/v2/lang/${langcode}`);
+        const data = await res.json();
+        dispatch({type: 'FETCH_LANG_DATA', payload: data})
    }
 
     
@@ -67,6 +66,7 @@ const CountContextProvider = (props) => {
             countriesbylanguage: state.countriesbylanguage,
             langlist: state.langlist,
             filtered: state.filtered,
+            chosen: state.chosen,
             fetchData,
             showDetailedInfo,
             clearCurrent,
