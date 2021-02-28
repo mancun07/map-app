@@ -5,15 +5,17 @@ import Marker from './Marker';
 import ExtraInfo from './ExtraInfo';
 import Header from './Header';
 import Loader from './Loader';
+import Navbar from './Navbar';
 
 
 
 const Map = ({center, zoom}) => {
-  const {fetchData, countries, current, loading} = useContext(CountContext);
+  const {fetchData, fetchDataReduced, countries, current, loading, filtered} = useContext(CountContext);
   useEffect(() => {
+    fetchDataReduced();
     fetchData();
-    console.log(countries)
   }, [])
+  console.log(filtered)
 
     return (
         <div className="map-container">
@@ -23,10 +25,14 @@ const Map = ({center, zoom}) => {
           defaultCenter={center}
           defaultZoom={zoom}
         >
+        <Navbar/>
         <Header/>
-        {countries && countries.map((el,i) => {
+        {/* Идея: если filter = null, то выводим countries, если нет, то выводим filtered */}
+        {!filtered ? (countries && countries.map((el,i) => {
             return <Marker key={i} lat={el.latlng[0]} lng={el.latlng[1]} el={el}/>
-        })}
+        })) : (filtered && filtered.map((el,i) => {
+          return <Marker key={i} lat={el.latlng[0]} lng={el.latlng[1]} el={el}/>
+      }))}
         {current !==null ? <ExtraInfo current={current}/> : ''}
         </GoogleMapReact>
         ) }

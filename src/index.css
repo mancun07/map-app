@@ -101,3 +101,19 @@ body {
     transform: rotate(360deg);
   }
 }
+
+.navbar {
+  display: flex;
+  background: #000;
+  color: #fff;
+  padding: 20px;
+  justify-content: center;
+  align-items: center;
+  list-style-type: none;
+  cursor: pointer;
+  position: absolute;
+  z-index: 3;
+  width: 100%;
+  top: -45vh;
+  left: -50vw;
+}

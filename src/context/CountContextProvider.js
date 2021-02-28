@@ -8,7 +8,10 @@ const CountContextProvider = (props) => {
     const initialState = {
         countries: [],
         loading: false,
-        current: null
+        current: null,
+        filtered:null,
+        choosen: null,
+        langlist: []
     }
 
     const [state, dispatch] = useReducer(CountContextReducer, initialState);
@@ -19,6 +22,21 @@ const CountContextProvider = (props) => {
         const data = await res.json();
         dispatch({type: 'GET_DATA', payload: data})
     }
+
+    const fetchDataReduced = async () => {
+        setLoading();
+        const res = await fetch('https://restcountries.eu/rest/v2/all?fields=name;languages;');
+        const data = await res.json();
+        dispatch({type: 'GET_LANGUAGES', payload: data})
+    }
+
+    const fetchLangData = async (langcode) => {
+        console.log('works')
+        // setLoading();
+        // const res = await fetch(`https://restcountries.eu/rest/v2/lang/${langcode}`);
+        // const data = await res.json();
+        dispatch({type: 'FETCH_LANG_DATA', payload: langcode})
+   }
 
     
     const showDetailedInfo = (el) => {
@@ -33,6 +51,12 @@ const CountContextProvider = (props) => {
         dispatch({type: 'SET_LOADING'})
     }
 
+    const filterByBiggest = (value) => {
+        dispatch({type: 'FILTER_BY_BIGGEST', payload: value})
+    }
+
+ 
+
 
 
     return (
@@ -40,9 +64,18 @@ const CountContextProvider = (props) => {
             countries: state.countries,
             loading: state.loading,
             current: state.current,
+            countriesbylanguage: state.countriesbylanguage,
+            langlist: state.langlist,
+            filtered: state.filtered,
             fetchData,
             showDetailedInfo,
-            clearCurrent        
+            clearCurrent,
+            filterByBiggest,
+            fetchDataReduced,
+            fetchLangData 
+       
+          
+          
             
             }}>
 
