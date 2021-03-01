@@ -27,7 +27,7 @@ const Navbar = () => {
         {/* style={display: {!isOpened ? 'none' : 'block'}}  */}
         <ul className={`navbar ${isOpened ? 'navbar-is-opened' : ''}`}>
             <li>
-                <label>Показать на карте страны:  </label>
+                <label>Показать на карте страны с численностью населения:  </label>
                 <select onChange={e => filterByBiggest(e.target.value)} style={{padding: '5px'}}>
                         <option value="">Выбрать</option>
                         <option value={0}>Все страны</option>
@@ -38,9 +38,10 @@ const Navbar = () => {
                 </select>
             </li>
             <li>
-                <label htmlFor="lang">Показать страны, говорящие на этом языке:  </label>
+                <label htmlFor="lang">Показать на карте страны, в которых выбранный ниже язык, является официальным:  </label>
                 <select onChange={e => fetchLangData(e.target.value)} style={{padding: '5px'}} name="lang" id="">
                     {langlist.map((el, i) => {
+                           <option value="">Выбрать</option>
                         return <option key={i} value={el.languages[0].iso639_1}>{el.languages[0].name}</option>
                     })}
                 </select>
