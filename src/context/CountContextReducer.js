@@ -58,6 +58,12 @@ const CountContextReducer = (state, action) => {
                 loading: true
             } 
 
+        case 'MENU_OPENED':
+            return {
+                ...state,
+                isOpened: !state.isOpened
+            }
+
         default:
             return state
     }

@@ -14,7 +14,7 @@ const Map = ({center, zoom}) => {
     fetchDataReduced();
     fetchData();
   }, [])
-  console.log(filtered)
+
 
 let val1 = countries && countries.map((el,i) => {
     return <MarkerMine key={i} lat={el.latlng[0]} lng={el.latlng[1]} el={el}/>

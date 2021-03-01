@@ -11,7 +11,8 @@ const CountContextProvider = (props) => {
         current: null,
         filtered:null,
         chosen: null,
-        langlist: []
+        langlist: [],
+        isOpened: false
     }
 
     const [state, dispatch] = useReducer(CountContextReducer, initialState);
@@ -35,6 +36,7 @@ const CountContextProvider = (props) => {
         const res = await fetch(`https://restcountries.eu/rest/v2/lang/${langcode}`);
         const data = await res.json();
         dispatch({type: 'FETCH_LANG_DATA', payload: data})
+        toggleMenu();
    }
 
     
@@ -50,9 +52,16 @@ const CountContextProvider = (props) => {
         dispatch({type: 'SET_LOADING'})
     }
 
+    const toggleMenu = () => {
+        dispatch({type: 'MENU_OPENED'})
+    }
+
     const filterByBiggest = (value) => {
+        toggleMenu();
         dispatch({type: 'FILTER_BY_BIGGEST', payload: value})
     }
+
+    
 
  
 
@@ -67,12 +76,14 @@ const CountContextProvider = (props) => {
             langlist: state.langlist,
             filtered: state.filtered,
             chosen: state.chosen,
+            isOpened: state.isOpened,
             fetchData,
             showDetailedInfo,
             clearCurrent,
             filterByBiggest,
             fetchDataReduced,
-            fetchLangData 
+            fetchLangData,
+            toggleMenu
        
           
           

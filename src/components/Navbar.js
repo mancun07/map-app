@@ -2,10 +2,11 @@ import React, {useContext, useState} from 'react'
 import { CountContext } from '../context/CountContextProvider';
 
 const Navbar = () => {
-    const [isOpened, setIsOpened] = useState(false);
-    const {filterByBiggest, langlist, fetchLangData} = useContext(CountContext);
-
-    // console.log(langlist)
+    // const [isOpened, setIsOpened] = useState(false);
+    const {filterByBiggest, langlist, fetchLangData, isOpened, toggleMenu} = useContext(CountContext);
+  
+    //  if (filtered !==null || chosen !== null) { return setIsOpened(false) } 
+    // console.log(langlist)    
 
     // const languages = countries.map(el => {
     //     return {iso639_1: el.languages[0].iso639_1, name:el.languages[0].name}
@@ -19,7 +20,7 @@ const Navbar = () => {
 
     return (
         <div className="navbar-wrapper">
-            <div style={{padding: '5px'}} className="sidenav-trigger-wrapper" onClick={() => setIsOpened(!isOpened)}>
+            <div style={{padding: '5px'}} className="sidenav-trigger-wrapper" onClick={toggleMenu}>
                 <div className="sidenav-trigger" >
                 </div> 
             </div>
