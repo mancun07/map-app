@@ -39,9 +39,9 @@ const Navbar = () => {
             </li>
             <li>
                 <label htmlFor="lang">Показать на карте страны, в которых выбранный ниже язык, является официальным:  </label>
-                <select onChange={e => fetchLangData(e.target.value)} style={{padding: '5px'}} name="lang" id="">
+                <select onChange={e => fetchLangData(e.target.value)} style={{padding: '5px'}} name="lang">
+                    <option value="">Выбрать</option>
                     {langlist.map((el, i) => {
-                           <option value="">Выбрать</option>
                         return <option key={i} value={el.languages[0].iso639_1}>{el.languages[0].name}</option>
                     })}
                 </select>
