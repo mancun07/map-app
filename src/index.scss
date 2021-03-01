@@ -1,4 +1,4 @@
-@import 'scss/navbar.scss';
+@import "scss/navbar.scss";
 
 * {
   box-sizing: border-box;
@@ -133,12 +133,21 @@ select {
       transform: translateX(-100vw);
       transition: all 0.3s ease;
       height: 0;
+      display: block;
+      text-align: center;
+      font-size: 18px;
+
+      select {
+        width: 90%;
+        margin: 10px 0;
+        font-size: 16px;
+      }
     }
 
     .navbar-is-opened {
       transform: translateX(0);
       height: 100%;
-      margin-top:10px;
+      margin-top: 10px;
     }
 
     li {
