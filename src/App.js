@@ -1,9 +1,8 @@
-import React, {useContext, useEffect} from 'react'
-import { CountContext } from './context/CountContextProvider'
+import React from 'react'
 import CountContextProvider from './context/CountContextProvider';
 import Map from './components/Map';
-import Loader from './components/Loader';
 import Navbar from './components/Navbar';
+import Header from './components/Header';
 
 
 function App() {
@@ -14,8 +13,9 @@ function App() {
   return (
     <CountContextProvider>
     <div>
- 
-     <Map/>
+      <Header/>
+      <Navbar/>
+      <Map/>
     </div>
     </CountContextProvider>
   );

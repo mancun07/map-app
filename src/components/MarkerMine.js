@@ -1,8 +1,8 @@
 import React, {useContext} from 'react'
 import { CountContext } from '../context/CountContextProvider'
 
-const Marker = ({el}) => {
-    const {showDetailedInfo, countries} = useContext(CountContext);
+const MarkerMine = ({el}) => {
+    const {showDetailedInfo} = useContext(CountContext);
     return (
         <div className="marker" onClick={() => showDetailedInfo(el)}>
             {/* <img src={el.flag} alt=""/> */}
@@ -11,4 +11,4 @@ const Marker = ({el}) => {
     )
 }
 
-export default Marker
+export default MarkerMine;

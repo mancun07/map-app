@@ -1,11 +1,10 @@
-import {useContext, useState, useEffect} from 'react'
+import {useContext, useEffect} from 'react'
 import GoogleMapReact from 'google-map-react';
 import { CountContext } from '../context/CountContextProvider';
-import Marker from './Marker';
+import MarkerMine from './MarkerMine';
 import ExtraInfo from './ExtraInfo';
-import Header from './Header';
 import Loader from './Loader';
-import Navbar from './Navbar';
+
 
 
 
@@ -18,15 +17,15 @@ const Map = ({center, zoom}) => {
   console.log(filtered)
 
 let val1 = countries && countries.map((el,i) => {
-    return <Marker key={i} lat={el.latlng[0]} lng={el.latlng[1]} el={el}/>
+    return <MarkerMine key={i} lat={el.latlng[0]} lng={el.latlng[1]} el={el}/>
 })
 
 let val2 = filtered && filtered.map((el,i) => {
-  return <Marker key={i} lat={el.latlng[0]} lng={el.latlng[1]} el={el}/>
+  return <MarkerMine key={i} lat={el.latlng[0]} lng={el.latlng[1]} el={el}/>
 })
 
 let val3 = chosen && chosen.map((el,i) => {
-  return <Marker key={i} lat={el.latlng[0]} lng={el.latlng[1]} el={el}/>
+  return <MarkerMine key={i} lat={el.latlng[0]} lng={el.latlng[1]} el={el}/>
 })
 
 
@@ -39,8 +38,7 @@ let val3 = chosen && chosen.map((el,i) => {
           defaultCenter={center}
           defaultZoom={zoom}
         >
-        <Navbar/>
-        <Header/>
+
         {/* Идея: если filter = null, то выводим countries, если нет, то выводим filtered */}
         {/* {!filtered && !chosen ? val1 : (!chosen && filtered ? val2 : val3)} */}
         {!filtered && !chosen && val1 }
