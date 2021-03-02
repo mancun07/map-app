@@ -3,7 +3,7 @@ import { CountContext } from '../context/CountContextProvider';
 
 const Navbar = () => {
     // const [isOpened, setIsOpened] = useState(false);
-    const {filterByBiggest, langlist, countries, fetchLangData, isOpened, toggleMenu} = useContext(CountContext);
+    const {filterByBiggest, langlist, chosen, countries, fetchLangData, isOpened, toggleMenu} = useContext(CountContext);
 
     console.log(countries)
 

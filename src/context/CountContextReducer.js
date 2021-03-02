@@ -24,7 +24,9 @@ const CountContextReducer = (state, action) => {
             return {
                 ...state,
                 filtered:null,
-                chosen: action.payload,
+                chosen: action.payload.filter(el => {
+                    return el.population !== 300
+                }),
                 loading: false
                 // filtered: state.countries.filter(el => {
                 //     if (el.languages.forEach(newEl => {
