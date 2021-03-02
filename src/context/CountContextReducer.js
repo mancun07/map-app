@@ -4,7 +4,9 @@ const CountContextReducer = (state, action) => {
         case 'GET_DATA':
             return {
                 ...state,
-                countries: action.payload,
+                countries: action.payload.filter(el => {
+                    return el.population !== 300
+                }),
                 loading: false
             }
 

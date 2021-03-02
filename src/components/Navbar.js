@@ -5,6 +5,7 @@ const Navbar = () => {
     // const [isOpened, setIsOpened] = useState(false);
     const {filterByBiggest, langlist, countries, fetchLangData, isOpened, toggleMenu} = useContext(CountContext);
 
+    console.log(countries)
 
          console.log(langlist)
     // Шаг 1
