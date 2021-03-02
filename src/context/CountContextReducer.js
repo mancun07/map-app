@@ -8,12 +8,6 @@ const CountContextReducer = (state, action) => {
                 loading: false
             }
 
-        case 'GET_LANGUAGES':
-            return {
-                ...state,
-                langlist: action.payload,
-                loading: false
-            }
         case 'FILTER_BY_BIGGEST':
             return {
                 ...state,
