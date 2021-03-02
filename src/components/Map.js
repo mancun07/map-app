@@ -9,9 +9,9 @@ import Loader from './Loader';
 
 
 const Map = ({center, zoom}) => {
-  const {fetchData, fetchDataReduced, countries, current, loading, chosen, filtered} = useContext(CountContext);
+  const {fetchData, countries, current, loading, chosen, filtered} = useContext(CountContext);
   useEffect(() => {
-    fetchDataReduced();
+    // fetchDataReduced();
     fetchData();
   }, [])
 

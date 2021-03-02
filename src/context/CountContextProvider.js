@@ -11,7 +11,7 @@ const CountContextProvider = (props) => {
         current: null,
         filtered:null,
         chosen: null,
-        langlist: [],
+        // langlist: [],
         isOpened: false
     }
 
@@ -73,7 +73,7 @@ const CountContextProvider = (props) => {
             loading: state.loading,
             current: state.current,
             countriesbylanguage: state.countriesbylanguage,
-            langlist: state.langlist,
+            // langlist: state.langlist,
             filtered: state.filtered,
             chosen: state.chosen,
             isOpened: state.isOpened,

@@ -3,7 +3,7 @@ import { CountContext } from '../context/CountContextProvider';
 
 const Navbar = () => {
     // const [isOpened, setIsOpened] = useState(false);
-    const {filterByBiggest, langlist, fetchLangData, isOpened, toggleMenu} = useContext(CountContext);
+    const {filterByBiggest, langlist, countries, fetchLangData, isOpened, toggleMenu} = useContext(CountContext);
 
 
          console.log(langlist)
@@ -15,23 +15,23 @@ const Navbar = () => {
     //     })
     // })
 
-    const ggg2 = langlist.map(el => {
-        return {iso: el.languages.map(item => {
-            return item.iso639_1 
-        }), name:el.name} 
-    })
+    // const ggg2 = langlist.map(el => {
+    //     return {iso: el.languages.map(item => {
+    //         return item.iso639_1 
+    //     }), name:el.name} 
+    // })
 
-    console.log(ggg2)
+    // console.log(ggg2)
 
 
     // Шаг 2
-const uniqueLanguages = ggg2.flat();
-console.log(ggg2)
-    console.log(uniqueLanguages)
+// const uniqueLanguages = ggg2.flat();
+// console.log(ggg2)
+//     console.log(uniqueLanguages)
 
-    // Шаг 3
-    var uniqueArray = [...new Set(uniqueLanguages)]
-    console.log(uniqueArray)
+//     // Шаг 3
+//     var uniqueArray = [...new Set(uniqueLanguages)]
+//     console.log(uniqueArray)
     // const arr = langlist.length && langlist.map(el => {
     //     return el.languages.map(item => {
     //         return item.iso639_1
@@ -42,7 +42,7 @@ console.log(ggg2)
     //     return {iso639_1: el.languages[0].iso639_1, name:el.languages[0].name}
     // })
 
-const bbb = langlist.map(el => {
+const bbb = countries.map(el => {
     return {iso: el.languages[0].iso639_1, name: el.languages[0].name}
 })
 
