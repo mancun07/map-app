@@ -4,19 +4,57 @@ import { CountContext } from '../context/CountContextProvider';
 const Navbar = () => {
     // const [isOpened, setIsOpened] = useState(false);
     const {filterByBiggest, langlist, fetchLangData, isOpened, toggleMenu} = useContext(CountContext);
-  
-    //  if (filtered !==null || chosen !== null) { return setIsOpened(false) } 
-    // console.log(langlist)    
+
+
+         console.log(langlist)
+    // Шаг 1
+    // const ggg = langlist.map(el => {
+    //     return el.languages.map((item, i) => {
+    //         return item.iso639_1 
+    //         console.log(ggg)
+    //     })
+    // })
+
+    const ggg2 = langlist.map(el => {
+        return {iso: el.languages.map(item => {
+            return item.iso639_1 
+        }), name:el.name} 
+    })
+
+    console.log(ggg2)
+
+
+    // Шаг 2
+const uniqueLanguages = ggg2.flat();
+console.log(ggg2)
+    console.log(uniqueLanguages)
+
+    // Шаг 3
+    var uniqueArray = [...new Set(uniqueLanguages)]
+    console.log(uniqueArray)
+    // const arr = langlist.length && langlist.map(el => {
+    //     return el.languages.map(item => {
+    //         return item.iso639_1
+    //     })
+    // })
 
     // const languages = countries.map(el => {
     //     return {iso639_1: el.languages[0].iso639_1, name:el.languages[0].name}
     // })
 
+const bbb = langlist.map(el => {
+    return {iso: el.languages[0].iso639_1, name: el.languages[0].name}
+})
 
-    // const uniqueLanguages = languages.filter((v, i, a) => a.indexOf(v) === i);
+console.log(bbb)
 
-    // console.log(languages)
- 
+function onlyUnique(value, index, self) {
+    return self.indexOf(value) === index;
+  }
+
+  const uniqueObjects = [...new Map(bbb.map(item => [item.iso, item])).values()]
+console.log(uniqueObjects)
+
 
     return (
         <div className="navbar-wrapper">
@@ -41,8 +79,8 @@ const Navbar = () => {
                 <label htmlFor="lang">Показать на карте страны, в которых выбранный ниже язык, является официальным:  </label>
                 <select onChange={e => fetchLangData(e.target.value)} style={{padding: '5px'}} name="lang">
                     <option value="">Выбрать</option>
-                    {langlist.map((el, i) => {
-                        return <option key={i} value={el.languages[0].iso639_1}>{el.languages[0].name}</option>
+                    {uniqueObjects.map((el, i) => {
+                        return <option key={i} value={el.iso}>{el.name}</option>
                     })}
                 </select>
             </li>

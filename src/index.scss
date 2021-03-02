@@ -17,7 +17,7 @@ select {
 .map-container {
   height: 150vh;
   width: 100%;
-  position: relative;
+  // position: relative;
 }
 
 .extra-info {
@@ -26,11 +26,16 @@ select {
   padding: 15px;
   border-radius: 10px;
   position: absolute;
-  top: -270px;
+  top: -50vh;
+  // top: -270px;
   left: -180px;
+  // left: 50%;
+  // margin-left: -45%;
+  // top: 50%;
+  // margin-top: -50%;
   font-size: 18px;
   width: 400px;
-  max-width: 90vw;
+  max-width: 90%;
   z-index: 3;
   display: block;
   margin: auto;
