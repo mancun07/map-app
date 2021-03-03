@@ -38,7 +38,7 @@ let val2 = filtered && filtered.map((el,i) => {
           defaultZoom={zoom}
         >
         {!filtered ? val1 : val2 }
-        {!current ? <ExtraInfo current={current}/> : ''}
+        {current && <ExtraInfo current={current}/>}
         </GoogleMapReact>
         ) }
       </div>
