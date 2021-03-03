@@ -9,9 +9,11 @@ import Loader from './Loader';
 
 
 const Map = ({center, zoom}) => {
-  const {fetchData, countries, current, loading, chosen, filtered} = useContext(CountContext);
+  const {fetchData, countries, current, loading, filtered} = useContext(CountContext);
   useEffect(() => {
     fetchData();
+    
+   // eslint-disable-next-line
   }, [])
 
 
@@ -23,10 +25,9 @@ let val2 = filtered && filtered.map((el,i) => {
   return <MarkerMine key={i} lat={el.latlng[0]} lng={el.latlng[1]} el={el}/>
 })
 
-let val3 = chosen && chosen.map((el,i) => {
-  return <MarkerMine key={i} lat={el.latlng[0]} lng={el.latlng[1]} el={el}/>
-})
-
+// let val3 = chosen && chosen.map((el,i) => {
+//   return <MarkerMine key={i} lat={el.latlng[0]} lng={el.latlng[1]} el={el}/>
+// })
 
 
     return (
@@ -38,11 +39,7 @@ let val3 = chosen && chosen.map((el,i) => {
           defaultZoom={zoom}
         >
 
-        {/* Идея: если filter = null, то выводим countries, если нет, то выводим filtered */}
-        {/* {!filtered && !chosen ? val1 : (!chosen && filtered ? val2 : val3)} */}
-        {!filtered && !chosen && val1 }
-        {filtered && !chosen && val2 }
-        {val3}
+        {!filtered ? val1 : val2 }
         {current !==null ? <ExtraInfo current={current}/> : ''}
         </GoogleMapReact>
         ) }

@@ -2,14 +2,9 @@ import React from 'react'
 
 const Loader = () => {
 
-    let digits = [1,2,1,2,3,4,5]
-    let updatedDigits = [...new Set(digits)]
-    console.log(updatedDigits)
-
-    // var filteredArray = arr.filter(function(item, pos){
-    //     return arr.indexOf(item)== pos; 
-    //   });
-      
+    // let digits = [1,2,1,2,3,4,5]
+    // let updatedDigits = [...new Set(digits)]
+    // console.log(updatedDigits)
 
     return (
         <div className="loader-wrapper">

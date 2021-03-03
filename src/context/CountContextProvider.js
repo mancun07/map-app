@@ -10,26 +10,25 @@ const CountContextProvider = (props) => {
         loading: false,
         current: null,
         filtered:null,
-        chosen: null,
-        // langlist: [],
         isOpened: false
     }
 
     const [state, dispatch] = useReducer(CountContextReducer, initialState);
 
     const fetchData = async () => {
-        setLoading();
-        const res = await fetch('https://restcountries.eu/rest/v2/all');
-        const data = await res.json();
-        dispatch({type: 'GET_DATA', payload: data})
+        try {
+            setLoading();
+            const res = await fetch('https://restcountries.eu/rest/v2/all');
+            const data = await res.json();
+            dispatch({type: 'GET_DATA', payload: data})
+        }
+
+        catch (err) {
+            console.log(err.message)
+        }
+
     }
 
-    const fetchDataReduced = async () => {
-        setLoading();
-        const res = await fetch('https://restcountries.eu/rest/v2/all?fields=name;languages;');
-        const data = await res.json();
-        dispatch({type: 'GET_LANGUAGES', payload: data})
-    }
 
     const fetchLangData = async (langcode) => {
         setLoading();
@@ -38,6 +37,11 @@ const CountContextProvider = (props) => {
         dispatch({type: 'FETCH_LANG_DATA', payload: data})
         toggleMenu();
    }
+
+   const filterByBiggest = (value) => {
+    toggleMenu();
+    dispatch({type: 'FILTER_BY_BIGGEST', payload: value})
+}
 
     
     const showDetailedInfo = (el) => {
@@ -56,38 +60,21 @@ const CountContextProvider = (props) => {
         dispatch({type: 'MENU_OPENED'})
     }
 
-    const filterByBiggest = (value) => {
-        toggleMenu();
-        dispatch({type: 'FILTER_BY_BIGGEST', payload: value})
-    }
-
-    
-
- 
-
-
 
     return (
         <CountContext.Provider value={{
             countries: state.countries,
             loading: state.loading,
             current: state.current,
-            countriesbylanguage: state.countriesbylanguage,
-            // langlist: state.langlist,
             filtered: state.filtered,
-            chosen: state.chosen,
             isOpened: state.isOpened,
             fetchData,
             showDetailedInfo,
             clearCurrent,
             filterByBiggest,
-            fetchDataReduced,
             fetchLangData,
             toggleMenu
        
-          
-          
-            
             }}>
 
             {props.children}

@@ -1,6 +1,7 @@
 import {useContext} from 'react'
 import { CountContext } from '../context/CountContextProvider'
 import {motion} from 'framer-motion'
+import PropTypes from 'prop-types'
 
 const ExtraInfo = ({current}) => {
     const {clearCurrent} = useContext(CountContext);
@@ -45,6 +46,10 @@ const ExtraInfo = ({current}) => {
         </motion.div> 
     
     )
+}
+
+ExtraInfo.propTypes = {
+    current: PropTypes.object
 }
 
 export default ExtraInfo

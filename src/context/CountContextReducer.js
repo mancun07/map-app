@@ -13,7 +13,6 @@ const CountContextReducer = (state, action) => {
         case 'FILTER_BY_BIGGEST':
             return {
                 ...state,
-                chosen: null,
                 filtered: state.countries.filter(el => {
                     return el.population > action.payload
                 })
@@ -23,19 +22,10 @@ const CountContextReducer = (state, action) => {
         case 'FETCH_LANG_DATA':
             return {
                 ...state,
-                filtered:null,
-                chosen: action.payload.filter(el => {
+                filtered: action.payload.filter(el => {
                     return el.population !== 300
                 }),
                 loading: false
-                // filtered: state.countries.filter(el => {
-                //     if (el.languages.forEach(newEl => {
-                //         newEl.iso639_1 === action.payload
-                //     })) {
-                //         return el.languages
-                //     }
-                // })
-                // .filter(el => el.languages.iso639_1 === action.payload)
             }    
     
         case 'SET_CURRENT':

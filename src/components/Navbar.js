@@ -1,13 +1,10 @@
-import React, {useContext, useState} from 'react'
+import React, {useContext} from 'react'
 import { CountContext } from '../context/CountContextProvider';
 
 const Navbar = () => {
-    // const [isOpened, setIsOpened] = useState(false);
-    const {filterByBiggest, langlist, chosen, countries, fetchLangData, isOpened, toggleMenu} = useContext(CountContext);
 
-    console.log(countries)
+    const {filterByBiggest, countries, fetchLangData, isOpened, toggleMenu} = useContext(CountContext);
 
-         console.log(langlist)
     // Шаг 1
     // const ggg = langlist.map(el => {
     //     return el.languages.map((item, i) => {
@@ -43,18 +40,12 @@ const Navbar = () => {
     //     return {iso639_1: el.languages[0].iso639_1, name:el.languages[0].name}
     // })
 
-const bbb = countries.map(el => {
+const updatedCountries = countries.map(el => {
     return {iso: el.languages[0].iso639_1, name: el.languages[0].name}
 })
 
-console.log(bbb)
 
-function onlyUnique(value, index, self) {
-    return self.indexOf(value) === index;
-  }
-
-  const uniqueObjects = [...new Map(bbb.map(item => [item.iso, item])).values()]
-console.log(uniqueObjects)
+  const uniqueObjects = [...new Map(updatedCountries.map(item => [item.iso, item])).values()]
 
 
     return (
@@ -63,7 +54,7 @@ console.log(uniqueObjects)
                 <div className="sidenav-trigger" >
                 </div> 
             </div>
-        {/* style={display: {!isOpened ? 'none' : 'block'}}  */}
+  
         <ul className={`navbar ${isOpened ? 'navbar-is-opened' : ''}`}>
             <li>
                 <label>Показать на карте страны с численностью населения:  </label>
