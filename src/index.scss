@@ -28,11 +28,11 @@ select {
   padding: 15px;
   border-radius: 10px;
   position: absolute;
-  top: -45vh;
+  top: -40vh;
   left: -170px;
   font-size: 18px;
   width: 400px;
-  max-width: 90%;
+  max-width: 90vw;
   z-index: 3;
   display: block;
   margin: auto;
@@ -124,9 +124,17 @@ select {
   h1 {
     font-size: 1.4rem;
   }
+
+  .extra-info {
+    top: -35vh;
+  }
 }
 
 @media (max-width: 500px) {
+  .extra-info {
+    top: -45vh;
+  }
+
   .navbar-wrapper {
     display: block;
 
