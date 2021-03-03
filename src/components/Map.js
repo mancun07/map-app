@@ -12,7 +12,6 @@ const Map = ({center, zoom}) => {
   const {fetchData, countries, current, loading, filtered} = useContext(CountContext);
   useEffect(() => {
     fetchData();
-    
    // eslint-disable-next-line
   }, [])
 
@@ -38,9 +37,8 @@ let val2 = filtered && filtered.map((el,i) => {
           defaultCenter={center}
           defaultZoom={zoom}
         >
-
         {!filtered ? val1 : val2 }
-        {current !==null ? <ExtraInfo current={current}/> : ''}
+        {!current ? <ExtraInfo current={current}/> : ''}
         </GoogleMapReact>
         ) }
       </div>
