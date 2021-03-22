@@ -5,45 +5,12 @@ const Navbar = () => {
 
     const {filterByBiggest, countries, fetchLangData, isOpened, toggleMenu} = useContext(CountContext);
 
-    // Шаг 1
-    // const ggg = langlist.map(el => {
-    //     return el.languages.map((item, i) => {
-    //         return item.iso639_1 
-    //         console.log(ggg)
-    //     })
-    // })
-
-    // const ggg2 = langlist.map(el => {
-    //     return {iso: el.languages.map(item => {
-    //         return item.iso639_1 
-    //     }), name:el.name} 
-    // })
-
-    // console.log(ggg2)
-
-
-    // Шаг 2
-// const uniqueLanguages = ggg2.flat();
-// console.log(ggg2)
-//     console.log(uniqueLanguages)
-
-//     // Шаг 3
-//     var uniqueArray = [...new Set(uniqueLanguages)]
-//     console.log(uniqueArray)
-    // const arr = langlist.length && langlist.map(el => {
-    //     return el.languages.map(item => {
-    //         return item.iso639_1
-    //     })
-    // })
-
-    // const languages = countries.map(el => {
-    //     return {iso639_1: el.languages[0].iso639_1, name:el.languages[0].name}
-    // })
-
+    // создаем новый массив
 const updatedCountries = countries.map(el => {
     return {iso: el.languages[0].iso639_1, name: el.languages[0].name}
 })
 
+ // оставляем только уникальные значения iso
   const uniqueObjects = [...new Map(updatedCountries.map(item => [item.iso, item])).values()]
 
 
