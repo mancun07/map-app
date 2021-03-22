@@ -7,6 +7,7 @@ const ExtraInfo = ({current}) => {
     const {clearCurrent} = useContext(CountContext);
     
 
+//для добавления пробелов между разрядами цифр
     function numberWithSpaces(x) {
         return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
     }
@@ -49,7 +50,7 @@ const ExtraInfo = ({current}) => {
 }
 
 ExtraInfo.propTypes = {
-    current: PropTypes.object
+    current: PropTypes.object.isRequired
 }
 
 export default ExtraInfo

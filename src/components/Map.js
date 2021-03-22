@@ -6,27 +6,23 @@ import ExtraInfo from './ExtraInfo';
 import Loader from './Loader';
 
 
-
-
 const Map = ({center, zoom}) => {
   const {fetchData, countries, current, loading, filtered} = useContext(CountContext);
+
   useEffect(() => {
     fetchData();
    // eslint-disable-next-line
   }, [])
 
-
+//все страны сохраняем в переменную val1
 let val1 = countries && countries.map((el,i) => {
     return <MarkerMine key={i} lat={el.latlng[0]} lng={el.latlng[1]} el={el}/>
 })
 
+//только отфильтрованные страны сохраняем в переменную val2
 let val2 = filtered && filtered.map((el,i) => {
   return <MarkerMine key={i} lat={el.latlng[0]} lng={el.latlng[1]} el={el}/>
 })
-
-// let val3 = chosen && chosen.map((el,i) => {
-//   return <MarkerMine key={i} lat={el.latlng[0]} lng={el.latlng[1]} el={el}/>
-// })
 
 
     return (

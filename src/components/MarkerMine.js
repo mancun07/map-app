@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 
 const MarkerMine = ({el}) => {
     const {showDetailedInfo} = useContext(CountContext);
+
     return (
         <div className="marker" onClick={() => showDetailedInfo(el)}>
             {/* <img src={el.flag} alt=""/> */}
@@ -13,7 +14,7 @@ const MarkerMine = ({el}) => {
 }
 
 MarkerMine.propTypes = {
-    el: PropTypes.object
+    el: PropTypes.object.isRequired
 }
 
 

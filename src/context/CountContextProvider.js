@@ -22,7 +22,6 @@ const CountContextProvider = (props) => {
             const data = await res.json();
             dispatch({type: 'GET_DATA', payload: data})
         }
-
         catch (err) {
             console.log(err.message)
         }

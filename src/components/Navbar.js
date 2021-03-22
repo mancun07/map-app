@@ -44,7 +44,6 @@ const updatedCountries = countries.map(el => {
     return {iso: el.languages[0].iso639_1, name: el.languages[0].name}
 })
 
-
   const uniqueObjects = [...new Map(updatedCountries.map(item => [item.iso, item])).values()]
 
 
