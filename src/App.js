@@ -6,12 +6,10 @@ import Header from './components/Header';
 
 
 function App() {
-  // const [loading] = useContext(CountContext);
  
-
-
   return (
     <CountContextProvider>
+
     <div>
       <Header/>
       <Navbar/>

@@ -7,7 +7,7 @@ const ExtraInfo = ({current}) => {
     const {clearCurrent} = useContext(CountContext);
     
 
-//для добавления пробелов между разрядами цифр
+//ф-я для добавления пробелов между разрядами цифр
     function numberWithSpaces(x) {
         return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
     }
