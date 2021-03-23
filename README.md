@@ -1,2 +1,5 @@
-This is a recipe App. You just need to input a product name. Then you will see a list of dishes which contains the chosen product.
-You can choose the one and find out how to cook it.
+Просто кликнув по флажку страны, вы получите следующую информацию:
+национальный флаг, столица, численность населения, официальные языки, национальная валюта,
+временная зона.
+Также можно 1) выбрать язык и посмотреть, в каких странах данный язык является официальным.
+2)отразить информацию по численности населения.
