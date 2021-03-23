@@ -2,6 +2,7 @@ import React, {useContext} from 'react'
 import { CountContext } from '../context/CountContextProvider'
 import PropTypes from 'prop-types'
 
+
 const MarkerMine = ({el}) => {
     const {showDetailedInfo} = useContext(CountContext);
 
